@@ -49,11 +49,38 @@ Model Waveform
 
 Program
 
+```
+ac=10;
+Am=4.7;
+fc=2000;
+fm=310;
+fs=20000;
+t=0:1/fs:2/fm;
+wc=2*3.14*fc;
+wm=2*3.14*fm;
+e1=(Am*sin(wm*t));
+subplot(3,1,1);
+plot(t,e1);
+title("Modulating signal");
+xgrid
+e2=(ac*sin(wc*t));
+subplot(3,1,2);
+plot(t,e2);
+title("Carrier signal");
+xgrid
+e3=(Am/2.*cos(wc*t-wm*t))-(Am/2.*cos(wc*t+wm*t));
+subplot(3,1,3);
+plot(t,e3);
+title("Double side band suppressed carrier");
+xgrid
+```
 Output Graph
 
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/a9ded91a-1e1f-4857-9c88-2373ceacf648" />
 
 Tablular Column
 
+<img width="867" height="920" alt="image" src="https://github.com/user-attachments/assets/6abcfc43-e013-4f6e-bf39-e4f044604bae" />
 
 Result
 
